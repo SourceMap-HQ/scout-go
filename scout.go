@@ -206,7 +206,12 @@ func StartWithContext(ctx context.Context, opts ...Option) {
 	}()
 }
 
-// Flush and shut down the SDK.
+// Start readies Scout to start collecting telemetry.
+func Start(opts ...Option) {
+	StartWithContext(context.Background(), opts...)
+}
+
+// Flush buffers and stop collecting telemetry
 func Stop() {
 	interruptChan <- true
 	shutdown()
