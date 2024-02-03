@@ -1,12 +1,12 @@
-name: "Force pkg.go.dev release"
+name: 'Force pkg.go.dev release'
 
 on:
     release:
         types:
             - created
         tags:
-            - "v[0-9]+.[0-9]+.[0-9]+"
-    workflow_dispatch:
+            - 'v[0-9]+.[0-9]+.[0-9]+'
+            - '**/v[0-9]+.[0-9]+.[0-9]+'
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
