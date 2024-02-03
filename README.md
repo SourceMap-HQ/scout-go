@@ -4,7 +4,7 @@
 
 # scout-go
 
-The official Go SDK for Scout.
+The official Go SDK for Scout. Read the docs at [https://docs.getscout.dev/sdks/go/overview](https://docs.getscout.dev/sdks/go/overview)
 
 ## Usage
 
@@ -21,7 +21,9 @@ import "github.com/scout-inc/scout-go"
 func main() {
 	// some code
 
-	scout.Start()
+	scout.Init(
+		scout.WithProjectID(SCOUT_PROJECT_ID)
+	)
 	defer scout.Stop()
 	
 	// some code
@@ -39,7 +41,9 @@ import (
 
 func main() {
 	// some code
-	scout.Start()
+	scout.Init(
+		scout.WithProjectID(SCOUT_PROJECT_ID)
+	)
 	defer scout.Stop()
 
 	r := chi.NewMux()
@@ -57,7 +61,9 @@ import (
 
 func main() {
 	// some code
-	scout.Start()
+	scout.Init(
+		scout.WithProjectID(SCOUT_PROJECT_ID)
+	)
 	defer scout.Stop()
 
 	r := chi.NewMux()
@@ -66,7 +72,7 @@ func main() {
 }
 ```
 
-See [documentation link](link) for more examples.
+See [https://docs.getscout.dev/sdks/go/frameworks](https://docs.getscout.dev/sdks/go/frameworks) for more examples.
 
 To manually record an error:
 ```go

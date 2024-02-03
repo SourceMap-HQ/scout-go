@@ -26,7 +26,7 @@ func Histogram(ctx context.Context, name string, value float64, tags []attribute
 	scout.RecordMetric(ctx, name, value, tags...)
 }
 
-// Timing records duration information for an event (in seconds).
+// Duration records duration information for an event (in seconds).
 //
 // Example:
 //
@@ -38,19 +38,19 @@ func Histogram(ctx context.Context, name string, value float64, tags []attribute
 //			Value: attribute.StringValue("users"),
 //		},
 //	}
-//	metric.Timing(ctx, "queries.select", duration, tags, 1)
-func Timing(ctx context.Context, name string, value time.Duration, tags []attribute.KeyValue, rate float64) {
+//	metric.Duration(ctx, "queries.select", duration, tags, 1)
+func Duration(ctx context.Context, name string, value time.Duration, tags []attribute.KeyValue, rate float64) {
 	if !shouldRecordMetric(rate) {
 		return
 	}
 	scout.RecordMetric(ctx, name, value.Seconds(), tags...)
 }
 
-// Increment records a new metric instance with a value of 1.
+// Count records a new metric instance with a value of 1.
 // Example (to increment the new_users counter -- i.e to record a new instance of new_user):
 //
-// metric.Increment(ctx, "new_users", nil, 1)
-func Increment(ctx context.Context, name string, tags []attribute.KeyValue, rate float64) {
+// metric.Count(ctx, "new_users", nil, 1)
+func Count(ctx context.Context, name string, tags []attribute.KeyValue, rate float64) {
 	if !shouldRecordMetric(rate) {
 		return
 	}

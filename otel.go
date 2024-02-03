@@ -221,7 +221,7 @@ func RecordMetric(ctx context.Context, name string, value float64, tags ...attri
 
 // RecordError processes `err` to be recorded as a part of the session or network request.
 //
-// scout session and trace are inferred from the context.
+// Scout session and trace are inferred from the context.
 //
 // If sessionID is not set, then the error is associated with the project without a session context.
 func RecordError(ctx context.Context, err error, tags ...attribute.KeyValue) context.Context {
